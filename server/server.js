@@ -1,7 +1,10 @@
 const express = require('express');
-require('dotenv').config();
 
 const app = express();
+
+const newsRouter = require('./routes/news');
+
+app.use('/api/news', newsRouter);
 
 // Serve static files
 app.use(express.static('build'));
