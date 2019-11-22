@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 const newsList = (state = '', action) => {
-  switch (action.ype) {
+  switch (action.type) {
     case 'SET_NEWS':
       return action.payload;
     default:
