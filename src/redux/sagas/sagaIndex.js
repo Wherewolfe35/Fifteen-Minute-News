@@ -1,8 +1,8 @@
-import { all } from 'redux-saga/effects';
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* getNews(){
+  console.log('in getNews');
 try {
   let response = yield axios.get('/api/news');
   yield put({type: 'SET_NEWS', payload: response});
@@ -11,12 +11,6 @@ try {
 }
 }
 
-function* newsSaga(){
+export default function* rootSaga(){
   yield takeLatest('GET_NEWS', getNews);
-}
-
-export default function* rootSaga() {
-  yield all([
-    newsSaga
-  ]);
 }

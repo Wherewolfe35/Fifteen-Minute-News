@@ -1,3 +1,4 @@
+const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
@@ -7,7 +8,7 @@ router.get('/', (req, res) => {
 
   const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`;
   axios.get(url).then((response) => {
-    res.send(response.data);
+    res.send(response);
   })
   .catch((error) => {
     console.log('error in news GET', error);

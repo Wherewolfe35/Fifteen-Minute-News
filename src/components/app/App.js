@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import { connect } from 'react-redux';
 
 function App(props) {
   
   React.useEffect(() => {
-    props.dispatch('GET_NEWS');
+    props.dispatch({type:'GET_NEWS'});
   }, []);
 
   return (
@@ -14,8 +15,15 @@ function App(props) {
           15 Minute Old News!
         </p>
       </header>
+      <main>
+        {JSON.stringify(props)}
+      </main>
     </div>
   );
 }
 
-export default App;
+const mapStoreToProps = (store) => ({
+store,
+})
+
+export default connect(mapStoreToProps)(App);
