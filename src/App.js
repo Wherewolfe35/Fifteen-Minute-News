@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  
+function App(props) {
   
   React.useEffect(() => {
-    results = axios.get('/api/news');
+    props.dispatch('GET_NEWS');
   }, []);
 
   return (
